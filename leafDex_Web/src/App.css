@@ -31,6 +31,39 @@
   }
 }
 
+/* top nav section start  */
+.top-nav {
+  background-color: #6e6e6e;
+  position: fixed;   /* Keeps the nav fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
 
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0.3;
+  padding: 0;
+}
+
+.nav-link {
+  color: #15fd00;
+  text-decoration: none;
+  padding: 8px;
+  margin-right: 1rem;
+}
+
+.nav-link:hover {
+  background-color: #f8f8f8;
+  transition: background-color 1s ease;
+  border-radius: 1cm;
+
+}
+
+
+
+/* top nav section end */
 
 
