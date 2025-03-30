@@ -1,9 +1,11 @@
 //import { useState } from 'react'
 import leafDex from './assets/LeafDex.png'
-
+import { useNavigate } from "react-router-dom";
 import './App.css'
 
 function App() {
+
+  const navigate = useNavigate();
   return (
     <>{/* New top navigation */}
       <nav className="top-nav">
@@ -22,7 +24,7 @@ function App() {
     </li>
 
   <div className="log-in">
-    <button className="login-button" >
+    <button className="login-button"onClick={() => navigate("/login")}> 
       Log in
     </button>
     <button className="signup-button">
