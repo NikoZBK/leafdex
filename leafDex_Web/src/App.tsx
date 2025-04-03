@@ -1,4 +1,5 @@
-import leafDex from './assets/LeafDex.png';
+import Test from './components/Test';
+import { PlantProvider } from './context/PlantContext';
 
 import './index.css';
 
@@ -30,13 +31,9 @@ function App() {
           </li>
         </ul>{' '}
       </nav>
-      {/* 
-    /*logo */}
-      <div className="flex justify-center items-center h-screen">
-        <img src={leafDex} className="logo" alt="Vite logo" />
-      </div>
-
-      <h1>Leafdex</h1>
+      <PlantProvider>
+        <Test />
+      </PlantProvider>
     </>
   );
 }
