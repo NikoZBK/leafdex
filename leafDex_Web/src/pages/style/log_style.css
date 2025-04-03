@@ -12,23 +12,19 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden; /* Changed from hidden to allow vertical scroll if needed */
   }
   
   /* Updated login-page styles */
   .login-page {
     min-height: 100vh;
-    min-width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;  /* Changed from min-width: 100vw to width: 100% */
+    position: relative; /* Changed from fixed to relative for better mobile handling */
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(#3a3b45, #037008);
-    overflow: hidden;
+    padding: 1rem; /* Added padding for smaller screens */
     font-family: 'Segoe UI', sans-serif;
   }
   
@@ -47,26 +43,26 @@
     pointer-events: none;
   }
   
-  /* Card with fixed max width and full responsiveness */
+  /* Card with improved responsiveness */
   .login-card {
-    width: 100%;
+    width: 90%; /* Changed from 100% */
     max-width: 400px;
+    min-width: 280px; /* Added min-width for very small screens */
     backdrop-filter: blur(16px);
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem); /* Responsive padding */
     z-index: 2;
     animation: fadeIn 1.5s ease forwards;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    color: #fff;
-    box-sizing: border-box;
+    color: #e90000;
   }
   
-  /* Title */
+  /* Title with responsive font size */
   .login-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
     margin-bottom: 1.5rem;
   }
   
@@ -74,25 +70,26 @@
   .login-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: clamp(0.8rem, 2vw, 1.2rem); /* Responsive gap */
   }
   
-  /* Label */
+  /* Label with responsive font size */
   .form-label {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     margin-bottom: 0.3rem;
     color: #f1f1f1;
   }
   
-  /* Input */
+  /* Input with responsive padding */
   .form-input {
-    padding: 0.7rem 1rem;
+    padding: clamp(0.5rem, 2vw, 0.7rem) clamp(0.8rem, 2vw, 1rem);
     border-radius: 10px;
     border: none;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     transition: all 0.3s ease;
+    width: 100%; /* Added width */
   }
   
   .form-input::placeholder {
@@ -105,20 +102,18 @@
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
   }
   
-  /* Button */
+  /* Button with responsive styles */
   .login-button {
     background-color: #ffffff;
     color: #333;
-    padding: 1rem;
+    padding: clamp(0.8rem, 2vw, 1rem);
     border: none;
     border-radius: 12px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     cursor: pointer;
-    margin-top: 0.25rem;
-    margin-bottom:  0.5rem;
-    margin-left:  0.5rem;
-    margin-right:  0.5rem;
+    margin: 0.5rem;
+    width: calc(100% - 1rem); /* Adjusted width accounting for margins */
     transition: transform 0.2s ease, background-color 0.3s ease;
   }
   
@@ -146,6 +141,18 @@
     }
     100% {
       transform: translate(40px, 40px);
+    }
+  }
+  
+  /* Media query for very small screens */
+  @media screen and (max-width: 320px) {
+    .login-card {
+        padding: 56rem;
+        left: 50;
+    }
+    
+    .login-button {
+        margin: 0.25rem;
     }
   }
   

@@ -41,25 +41,29 @@
   z-index: 999;
 }
 
+
+
+.nav-list li {
+  padding: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .nav-list {
   list-style: none;
   display: flex;
   margin-top: 0.5;
-  margin: 0.8;
-  padding: 0;
- 
 }
 
 .nav-link {
   color: #05e905;
   text-decoration: none;
-  padding: 8px;
-  margin-right: 1rem;
   font-size: x-large;
  font-family: 'Times New Roman', Times, serif;
   
-  margin-bottom:  0.5rem;
-  margin-right:  0.5rem;
 }
 
 
@@ -73,43 +77,52 @@
 }
 
 
-.log-in{
+.log-in {
   list-style: none;
   display: flex;
-  margin: 0.3;
-
-  margin-left: 65%;
+  margin-left: auto;  /* This will push the login buttons to the right */
   padding: 0;
-  color: aquamar
-
+  color: aquamarine; /* Fixed the color name typo */
+  gap: 10px; /* Adds space between login and signup buttons */
 }
-  .login-button,
+
+/* Update the nav-list to properly layout the items */
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;  /* Vertically centers the items */
+  justify-content: flex-start; /* Aligns items to the start */
+  margin: 0;
+  padding: 0 2rem; /* Add some horizontal padding */
+  width: 100%;
+}
+.login-button,
 .signup-button {
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
+  margin: 0.5rem;
+  min-width: 90px;  /* Increased from 80px */
+  height: 44px;     /* Increased from 40px */
+  font-size: 1.1rem; /* Slightly larger font */
+  padding: 0.6rem 1.2rem; /* Slightly more padding */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-button {
   background-color: transparent;
-  color: white;
-  border: 1px solid #000000;
   color: #000000;
-  margin: 2;
+  border: 1px solid #000000;
 }
 
 .signup-button {
   background-color: #000000;
-  color: white;
+  color: #ffffff;
   border: none;
-  margin-top: 0.25rem;
-  margin-bottom:  0.5rem;
-  margin-left:  0.5rem;
-  margin-right:  0.5rem;
-  border-radius: 12px;
-
 }
 
 .login-button:hover,
