@@ -2,6 +2,7 @@
 import leafDex from './assets/LeafDex.png'
 import { useNavigate } from "react-router-dom";
 import './App.css'
+import video from "./pages/style/videoplayback.webm";
 
 function App() {
 
@@ -32,6 +33,13 @@ function App() {
             </button>
   </div>  </ul>
 </nav>
+
+<div className="video-background">
+  <video autoPlay loop muted className="background-video">
+    <source src={video} type="video/webm" />
+  </video>
+</div>
+
 {/* 
     /*logo */ }
       <div>
