@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { PlantContext } from '../context/PlantContext';
+import { PlantContext } from '../context/PlantContextHelper';
 
 export const usePlants = () => {
   const context = useContext(PlantContext);

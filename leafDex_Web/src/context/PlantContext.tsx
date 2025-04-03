@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Plant, PlantFormData } from '../types/plants';
-import { PlantContext } from './PlantContext';
+import { PlantContext } from './PlantContextHelper';
 
 /**
  * PlantProvider Component
@@ -24,7 +24,7 @@ export const PlantProvider: React.FC<{ children: React.ReactNode }> = ({
   const [error, setError] = useState<string | null>(null);
   // Add a new plant to the list
   const addPlant = useCallback(async (plantData: PlantFormData) => {
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
     try {
       const newPlant: Plant = {
         id: Date.now().toString(),
