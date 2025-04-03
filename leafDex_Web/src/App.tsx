@@ -1,7 +1,6 @@
 import leafDex from './assets/LeafDex.png';
 
-import './App.css';
-import Card from './components/ui/Card';
+import './index.css';
 
 function App() {
   return (
@@ -33,9 +32,10 @@ function App() {
       </nav>
       {/* 
     /*logo */}
-      <Card>
+      <div className="flex justify-center items-center h-screen">
         <img src={leafDex} className="logo" alt="Vite logo" />
-      </Card>
+      </div>
+
       <h1>Leafdex</h1>
     </>
   );
