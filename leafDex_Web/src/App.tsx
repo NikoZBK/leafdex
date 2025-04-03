@@ -27,9 +27,9 @@ function App() {
     <button className="login-button"onClick={() => navigate("/login")}> 
       Log in
     </button>
-    <button className="signup-button">
-      Sign up
-    </button>
+    <button className="signup-button" onClick={() => navigate("/signup")}>
+              Sign up
+            </button>
   </div>  </ul>
 </nav>
 {/* 

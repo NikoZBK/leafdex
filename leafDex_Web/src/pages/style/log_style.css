@@ -1,158 +1,189 @@
-/* Fullscreen gradient background */
 /* Reset default margins and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Reset html and body */
-  html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Changed from hidden to allow vertical scroll if needed */
-  }
-  
-  /* Updated login-page styles */
-  .login-page {
-    min-height: 100vh;
-    width: 100%;  /* Changed from min-width: 100vw to width: 100% */
-    position: relative; /* Changed from fixed to relative for better mobile handling */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(#3a3b45, #037008);
-    padding: 1rem; /* Added padding for smaller screens */
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  /* Fullscreen animated bubbles background */
-  .bubbles-bg::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: moveBubbles 60s linear infinite;
-    z-index: 1;
-    top: -50%;
-    left: -50%;
-    pointer-events: none;
-  }
-  
-  /* Card with improved responsiveness */
-  .login-card {
-    width: 90%; /* Changed from 100% */
-    max-width: 400px;
-    min-width: 280px; /* Added min-width for very small screens */
-    backdrop-filter: blur(16px);
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: clamp(1.5rem, 5vw, 2.5rem); /* Responsive padding */
-    z-index: 2;
-    animation: fadeIn 1.5s ease forwards;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    color: #e90000;
-  }
-  
-  /* Title with responsive font size */
-  .login-title {
-    text-align: center;
-    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Form layout */
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.8rem, 2vw, 1.2rem); /* Responsive gap */
-  }
-  
-  /* Label with responsive font size */
-  .form-label {
-    font-size: clamp(0.8rem, 2vw, 0.9rem);
-    margin-bottom: 0.3rem;
-    color: #f1f1f1;
-  }
-  
-  /* Input with responsive padding */
-  .form-input {
-    padding: clamp(0.5rem, 2vw, 0.7rem) clamp(0.8rem, 2vw, 1rem);
-    border-radius: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    transition: all 0.3s ease;
-    width: 100%; /* Added width */
-  }
-  
-  .form-input::placeholder {
-    color: #e5e5e5;
-  }
-  
-  .form-input:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.35);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-  }
-  
-  /* Button with responsive styles */
-  .login-button {
-    background-color: #ffffff;
-    color: #333;
-    padding: clamp(0.8rem, 2vw, 1rem);
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    cursor: pointer;
-    margin: 0.5rem;
-    width: calc(100% - 1rem); /* Adjusted width accounting for margins */
-    transition: transform 0.2s ease, background-color 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #f1f1f1;
-    transform: translateY(-2px);
-  }
-  
-  /* Fade-in animation for the card */
-  @keyframes fadeIn {
-    from {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset html and body */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Changed to hidden to prevent any scrolling */
+}
+
+/* Updated login-page styles */
+.login-page {
+  height: 100vh; /* Changed from min-height to fixed height */
+  width: 100vw; /* Changed to vw for full viewport width */
+  position: fixed; /* Changed back to fixed for full coverage */
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#3a3b45, #037008);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fullscreen animated bubbles background */
+.bubbles-bg::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveBubbles 60s linear infinite;
+  z-index: 1;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+}
+
+/* Card with full screen coverage */
+.login-card {
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  max-width: none; /* Remove max-width constraint */
+  min-width: none; /* Remove min-width constraint */
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.15);
+  border: none; /* Remove border */
+  border-radius: 0; /* Remove border radius */
+  padding: 2rem;
+  z-index: 2;
+  animation: fadeIn 1.5s ease forwards;
+  box-shadow: none; /* Remove shadow */
+  color: #fff; /* Changed text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Title with responsive font size */
+.login-title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem); /* Increased font size */
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+/* Form layout with centered content */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 500px; /* Max width for better readability */
+  margin: 0 auto;
+}
+
+/* Label with responsive font size */
+.form-label {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 0.5rem;
+  color: #f1f1f1;
+}
+
+/* Input with responsive padding */
+.form-input {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Button with responsive styles */
+.login-button {
+  background-color: #ffffff;
+  color: #333;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  cursor: pointer;
+  width: 100%; /* Full width button */
+  margin-top: 1rem;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
       opacity: 0;
       transform: translateY(30px);
-    }
-    to {
+  }
+  to {
       opacity: 1;
       transform: translateY(0);
-    }
   }
-  
-  /* Background animation */
-  @keyframes moveBubbles {
-    0% {
+}
+
+@keyframes moveBubbles {
+  0% {
       transform: translate(0, 0);
-    }
-    100% {
+  }
+  100% {
       transform: translate(40px, 40px);
-    }
+  }
+}
+
+/* Media queries for better responsiveness */
+@media screen and (max-width: 768px) {
+  .login-card {
+      padding: 1rem;
   }
   
-  /* Media query for very small screens */
-  @media screen and (max-width: 320px) {
-    .login-card {
-        padding: 56rem;
-        left: 50;
-    }
-    
-    .login-button {
-        margin: 0.25rem;
-    }
+  .login-form {
+      width: 95%;
+  }
+}
+
+/* Landscape mode handling */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .login-card {
+      padding: 1rem;
+      overflow-y: auto;
   }
   
+  .login-form {
+      gap: 1rem;
+      padding: 1rem 0;
+  }
+  
+  .login-title {
+      margin-bottom: 1rem;
+  }
+}
+
+/* iOS Safari fix */
+@supports (-webkit-touch-callout: none) {
+  .login-page,
+  .login-card {
+      height: -webkit-fill-available;
+  }
+}
