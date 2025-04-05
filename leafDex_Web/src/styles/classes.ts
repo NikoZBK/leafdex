@@ -10,9 +10,18 @@ export const classes = {
   paragraph: 'mb-6',
 
   // Cards
-  card: 'card bg-base-200',
+  card: 'card bg-base-200 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1',
   cardBody: 'card-body',
   cardTitle: 'card-title',
+  cardContent: 'relative z-10',
+
+  // Steps
+  stepsContainer: 'space-y-12',
+  step: 'flex flex-col md:flex-row gap-6 items-center',
+  stepImage: 'w-full md:w-1/2 rounded-lg overflow-hidden shadow-lg',
+  stepContent: 'w-full md:w-1/2 space-y-4',
+  stepHeading: 'text-xl font-semibold text-primary',
+  stepText: 'text-base-content/70 leading-relaxed',
 
   // Forms
   formControl: 'form-control',

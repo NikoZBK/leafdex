@@ -1,5 +1,8 @@
 import React from 'react';
 import { classes } from '../styles/classes';
+import cameraStep from '../assets/camera-step.svg';
+import aiAnalysis from '../assets/ai-analysis.svg';
+import resultsStep from '../assets/results-step.svg';
 
 const AboutPage: React.FC = () => {
   return (
@@ -12,43 +15,68 @@ const AboutPage: React.FC = () => {
             LeafDex is your personal plant companion, designed to help you
             identify and learn about the plants around you. Whether you're a
             seasoned botanist or just starting your plant journey, LeafDex makes
-            plant identification accessible and fun.
+            plant identification easy for everyone.
           </p>
 
-          <h2 className={classes.heading2}>Our Mission</h2>
+          <h2 className={classes.heading2}>Grow Your Plant Collection</h2>
           <p className={classes.paragraph}>
-            We believe that everyone should have the ability to connect with
-            nature and understand the plants that surround them. Our mission is
-            to make plant identification accessible, educational, and engaging
-            for everyone.
+            Taking a photo of a plant will add it to your personal collection.
+            You can then view the plant's information, care instructions, and
+            fun facts, as well as compare your plant collection to others.
           </p>
 
           <h2 className={classes.heading2}>How It Works</h2>
-          <div className={`${classes.grid3} mb-8`}>
-            <div className={classes.card}>
-              <div className={classes.cardBody}>
-                <h3 className={classes.heading3}>1. Take a Photo</h3>
-                <p>
-                  Capture a clear photo of the plant you want to identify using
-                  your device's camera.
+          <div className={classes.stepsContainer}>
+            <div className={classes.step}>
+              <div className={classes.stepImage}>
+                <img
+                  src={cameraStep}
+                  alt="Taking a photo of a plant with a smartphone camera"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className={classes.stepContent}>
+                <h3 className={classes.stepHeading}>Take a Photo</h3>
+                <p className={classes.stepText}>
+                  Simply point your camera at any plant you want to identify.
+                  Our app guides you to capture the best angle for accurate
+                  identification.
                 </p>
               </div>
             </div>
-            <div className={classes.card}>
-              <div className={classes.cardBody}>
-                <h3 className={classes.heading3}>2. AI Analysis</h3>
-                <p>
-                  Our advanced AI technology analyzes your photo to identify the
-                  plant species.
+
+            <div className={`${classes.step} md:flex-row-reverse`}>
+              <div className={classes.stepImage}>
+                <img
+                  src={aiAnalysis}
+                  alt="AI analyzing a plant photo with visual indicators"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className={classes.stepContent}>
+                <h3 className={classes.stepHeading}>AI Analysis</h3>
+                <p className={classes.stepText}>
+                  Our advanced AI technology instantly analyzes your photo,
+                  identifying key features and comparing them against our
+                  extensive plant database.
                 </p>
               </div>
             </div>
-            <div className={classes.card}>
-              <div className={classes.cardBody}>
-                <h3 className={classes.heading3}>3. Get Results</h3>
-                <p>
-                  Receive detailed information about the plant, including care
-                  instructions and fun facts.
+
+            <div className={classes.step}>
+              <div className={classes.stepImage}>
+                <img
+                  src={resultsStep}
+                  alt="Detailed plant information display with care instructions"
+                  className="w-full h-full"
+                />
+              </div>
+              <div className={classes.stepContent}>
+                <h3 className={classes.stepHeading}>Get Results</h3>
+                <p className={classes.stepText}>
+                  Receive comprehensive information about your plant, including
+                  species details, care instructions, and interesting facts. Add
+                  it to your collection to track your botanical discoveries.
                 </p>
               </div>
             </div>
