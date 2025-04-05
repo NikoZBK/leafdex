@@ -1,36 +1,61 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-// Shared classes for navigation
-const navLinkClasses =
-  'text-primary hover:bg-base-100 rounded-lg transition-colors duration-300';
-
-interface NavLink {
-  href: string;
-  label: string;
-}
-
-const navLinks: NavLink[] = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#products', label: 'Products' },
-  { href: '#contact', label: 'Contact' },
-];
+// Shared classes for navigation elements
+const navClasses = {
+  container: 'navbar bg-base-200 fixed top-0 left-0 w-full z-50',
+  list: 'menu menu-horizontal px-1',
+  link: 'text-primary hover:bg-base-100 rounded-lg transition-colors',
+  buttonGroup: 'flex gap-2',
+  button: 'btn btn-primary btn-sm',
+};
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="navbar bg-base-200 fixed top-0 left-0 w-full z-50">
+    <nav className={navClasses.container}>
       <div className="navbar-start">
-        <ul className="menu menu-horizontal px-1">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} className={navLinkClasses}>
-                {link.label}
-              </a>
-            </li>
-          ))}
+        <ul className={navClasses.list}>
+          <li>
+            <a href="#home" className={navClasses.link}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className={navClasses.link}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#products" className={navClasses.link}>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className={navClasses.link}>
+              Contact
+            </a>
+          </li>
         </ul>
       </div>
-    </div>
+      <div className="navbar-end">
+        <div className={navClasses.buttonGroup}>
+          <button
+            className={navClasses.button}
+            onClick={() => navigate('/login')}
+          >
+            Log in
+          </button>
+          <button
+            className={navClasses.button}
+            onClick={() => navigate('/signup')}
+          >
+            Sign up
+          </button>
+        </div>
+      </div>
+    </nav>
   );
 };
 
