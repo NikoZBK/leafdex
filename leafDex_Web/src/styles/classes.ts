@@ -22,9 +22,12 @@ export const classes = {
   textarea: 'textarea textarea-bordered h-32',
 
   // Buttons
-  btnPrimary: 'btn btn-primary',
-  btnOutline: 'btn btn-outline',
-  btnCircle: 'btn btn-circle',
+  btnPrimary:
+    'btn btn-primary transition-[transform,box-shadow] duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/20 active:scale-95',
+  btnOutline:
+    'btn btn-outline transition-[transform,box-shadow] duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/10 active:scale-95',
+  btnCircle:
+    'btn btn-circle transition-[transform,box-shadow] duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/20 active:scale-95',
 
   // Grid
   grid2: 'grid grid-cols-1 md:grid-cols-2 gap-8',
