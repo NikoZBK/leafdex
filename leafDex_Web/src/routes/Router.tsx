@@ -3,6 +3,7 @@ import ProtectedRoute from './ProtectedRoute';
 import App from '../App';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
+import IdentifiedPlantsPage from '../pages/IdentifiedPlantsPage';
 
 // Layout components
 import MainLayout from '../layouts/MainLayout';
@@ -26,6 +27,7 @@ const Router = () => {
         }
       >
         <Route path="/" element={<App />} />
+        <Route path="/plants" element={<IdentifiedPlantsPage />} />
         {/* Add more protected routes here as needed */}
       </Route>
 

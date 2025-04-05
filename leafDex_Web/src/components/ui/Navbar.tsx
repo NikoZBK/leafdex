@@ -31,9 +31,12 @@ const Navbar: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="#products" className={navClasses.link}>
-              Products
-            </a>
+            <button
+              onClick={() => navigate('/plants')}
+              className={navClasses.link}
+            >
+              My Plants
+            </button>
           </li>
           <li>
             <a href="#contact" className={navClasses.link}>
