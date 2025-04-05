@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import leafDex from '../../assets/leaf.svg';
 
 // Shared classes for navigation elements
@@ -18,30 +18,29 @@ const Navbar: React.FC = () => {
   return (
     <nav className={navClasses.container}>
       <div className="navbar-start">
-        <img src={leafDex} alt="LeafDex Logo" className={navClasses.logo} />
+        <Link to="/" className="flex items-center">
+          <img src={leafDex} alt="LeafDex Logo" className={navClasses.logo} />
+        </Link>
         <ul className={navClasses.list}>
           <li>
-            <a href="#home" className={navClasses.link}>
+            <Link to="/" className={navClasses.link}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" className={navClasses.link}>
+            <Link to="/about" className={navClasses.link}>
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <button
-              onClick={() => navigate('/plants')}
-              className={navClasses.link}
-            >
+            <Link to="/plants" className={navClasses.link}>
               My Plants
-            </button>
+            </Link>
           </li>
           <li>
-            <a href="#contact" className={navClasses.link}>
+            <Link to="/contact" className={navClasses.link}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
