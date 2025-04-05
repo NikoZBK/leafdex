@@ -1,26 +1,24 @@
 //import { useState } from 'react'
-import leafDex from './assets/LeafDex.png';
 import './index.css';
 import video from './assets/videoplayback.webm';
-import Navbar from './components/ui/Navbar';
 
 function App() {
   return (
-    <>
-      <Navbar />
-
-      <div className="video-background">
-        <video autoPlay loop muted className="background-video">
+    <div className="relative min-h-screen">
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          className="w-full h-full object-cover opacity-50"
+        >
           <source src={video} type="video/webm" />
         </video>
       </div>
-
-      {/* Logo */}
-      <div>
-        <img src={leafDex} className="logo" alt="Vite logo" />
+      <div className="relative z-10">
+        <h1 className="text-4xl font-bold text-center pt-20">Leafdex</h1>
       </div>
-      <h1>Leafdex</h1>
-    </>
+    </div>
   );
 }
 

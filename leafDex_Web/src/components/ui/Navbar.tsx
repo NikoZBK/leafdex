@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import leafDex from '../../assets/leaf.svg';
 
 // Shared classes for navigation elements
 const navClasses = {
@@ -8,6 +9,7 @@ const navClasses = {
   link: 'text-primary hover:bg-base-100 rounded-lg transition-colors',
   buttonGroup: 'flex gap-2',
   button: 'btn btn-primary btn-sm',
+  logo: 'w-8 h-8 mr-4 scale-x-[-1]',
 };
 
 const Navbar: React.FC = () => {
@@ -16,6 +18,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={navClasses.container}>
       <div className="navbar-start">
+        <img src={leafDex} alt="LeafDex Logo" className={navClasses.logo} />
         <ul className={navClasses.list}>
           <li>
             <a href="#home" className={navClasses.link}>

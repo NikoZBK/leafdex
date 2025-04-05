@@ -26,7 +26,7 @@ const Router = () => {
         }
       >
         <Route path="/" element={<App />} />
-        {/* Add more protected routes here */}
+        {/* Add more protected routes here as needed */}
       </Route>
 
       {/* Catch all route - redirect to home */}
