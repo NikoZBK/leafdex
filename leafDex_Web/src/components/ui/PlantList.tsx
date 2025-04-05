@@ -1,4 +1,5 @@
 import React from 'react';
+import { classes } from '../../styles/classes';
 import PlantCard from './PlantCard';
 
 interface Plant {
@@ -6,18 +7,18 @@ interface Plant {
   name: string;
   scientificName?: string;
   imageUrl: string;
-  status?: 'new' | 'rare' | 'common';
+  status?: string;
 }
 
 interface PlantListProps {
   plants: Plant[];
-  onCollect?: (plantId: string) => void;
+  onCollect?: (id: string) => void;
 }
 
 const PlantList: React.FC<PlantListProps> = ({ plants, onCollect }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {plants.map(plant => (
+    <div className={classes.grid3}>
+      {plants.map((plant) => (
         <PlantCard
           key={plant.id}
           name={plant.name}
