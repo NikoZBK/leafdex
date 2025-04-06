@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone Frame -->
+  <rect x="100" y="50" width="200" height="400" rx="20" fill="#E5E7EB"/>
+  <rect x="120" y="70" width="160" height="360" rx="10" fill="white"/>
+  
+  <!-- Camera UI -->
+  <rect x="140" y="90" width="120" height="160" rx="8" fill="#F3F4F6"/>
+  <circle cx="200" cy="170" r="40" fill="#10B981"/>
+  <path d="M200 150C200 150 180 170 180 190C180 210 200 230 200 230C200 230 220 210 220 190C220 170 200 150 200 150Z" fill="white"/>
+  
+  <!-- Camera Frame -->
+  <rect x="140" y="90" width="120" height="160" rx="8" stroke="#D1D5DB" stroke-width="2" fill="none"/>
+</svg> 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Grid -->
+  <rect x="50" y="50" width="300" height="200" fill="#F3F4F6" rx="8"/>
+  <path d="M50 100H350M50 150H350M50 200H350M100 50V250M150 50V250M200 50V250M250 50V250M300 50V250" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <!-- AI Analysis Visualization -->
+  <circle cx="200" cy="150" r="60" fill="#10B981" fill-opacity="0.1"/>
+  <path d="M200 110C200 110 180 130 180 150C180 170 200 190 200 190C200 190 220 170 220 150C220 130 200 110 200 110Z" fill="#10B981" fill-opacity="0.3"/>
+  <path d="M200 130C200 130 190 140 190 150C190 160 200 170 200 170C200 170 210 160 210 150C210 140 200 130 200 130Z" fill="#10B981" fill-opacity="0.5"/>
+  
+  <!-- Connecting Lines -->
+  <path d="M140 150L180 150M220 150L260 150" stroke="#10B981" stroke-width="2" stroke-dasharray="4 4"/>
+</svg> 

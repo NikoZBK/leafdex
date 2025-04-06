@@ -1,6 +1,7 @@
 //import { useState } from 'react'
 import './index.css';
 import video from './assets/videoplayback.webm';
+import { classes } from './styles/classes';
 
 function App() {
   return (
@@ -16,36 +17,39 @@ function App() {
         </video>
       </div>
       <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="card bg-base-200/40 backdrop-blur-md shadow-2xl max-w-md w-full mx-4 border border-base-300/20 hover:border-primary/30 transition-all duration-300 hover:shadow-primary/20">
-          <div className="card-body items-center text-center p-8">
+        <div
+          className={`${classes.card} bg-base-200/40 backdrop-blur-md shadow-2xl max-w-md w-full mx-4 border border-base-300/20 transition-all duration-300`}
+        >
+          <div className={`${classes.cardBody} items-center text-center p-8`}>
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 animate-pulse">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 text-primary"
                 viewBox="0 0 24 24"
-                fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                {/* Camera lens outer ring */}
-                <circle cx="12" cy="12" r="10" />
-                {/* Camera lens inner ring */}
-                <circle cx="12" cy="12" r="8" />
-                {/* Leaf shape */}
-                <path d="M12 4C12 4 8 8 8 12C8 16 12 20 12 20C12 20 16 16 16 12C16 8 12 4 12 4Z" />
-                {/* Leaf details */}
-                <path d="M12 4C12 4 10 8 10 12C10 16 12 20 12 20" />
-                <path d="M12 4C12 4 14 8 14 12C14 16 12 20 12 20" />
+                <rect x="4" y="4" width="16" height="16" rx="2" fill="none" />
+                <path
+                  d="M12 8C12 8 10 10 10 12C10 14 12 16 12 16C12 16 14 14 14 12C14 10 12 8 12 8Z"
+                  fill="currentColor"
+                />
               </svg>
             </div>
-            <h1 className="text-5xl font-bold text-primary mb-4 tracking-tight">
+            <h1 className={`${classes.heading1} text-5xl tracking-tight`}>
               Leafdex
             </h1>
             <p className="text-base-content/80 text-lg mb-8 font-light">
               Your personal plant companion
             </p>
-            <div className="card-actions justify-center w-full gap-4">
-              <button className="btn btn-primary btn-lg flex-1 max-w-[200px] hover:scale-105 transition-transform duration-200">
+            <div
+              className={`${classes.gap4} card-actions justify-center w-full`}
+            >
+              <button
+                className={`${classes.btnPrimary} btn-lg flex-1 max-w-[200px] transition-transform duration-200`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 mr-2"
@@ -56,7 +60,9 @@ function App() {
                 </svg>
                 iOS
               </button>
-              <button className="btn btn-primary btn-lg flex-1 max-w-[200px] hover:scale-105 transition-transform duration-200">
+              <button
+                className={`${classes.btnPrimary} btn-lg flex-1 max-w-[200px] transition-transform duration-200`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 mr-2"
