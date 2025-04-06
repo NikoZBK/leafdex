@@ -2,8 +2,6 @@
 import './index.css';
 import video from './assets/videoplayback.webm';
 import { classes } from './styles/classes';
-import Upload from './upload';
-import { ContextWrapper } from './uploadContext'; // updated path
 
 
 function App() {
