@@ -30,7 +30,7 @@ export const PlantProvider: React.FC<{ children: React.ReactNode }> = ({
         id: Date.now().toString(),
         ...plantData,
       };
-      setPlants(prev => [...prev, newPlant]);
+      setPlants((prev) => [...prev, newPlant]);
     } catch (err) {
       setError(`Failed to add plant: ${err}`);
     } finally {

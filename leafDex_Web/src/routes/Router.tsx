@@ -2,8 +2,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import App from '../App';
 import SignupPage from '../pages/SignupPage';
 import IdentifiedPlantsPage from '../pages/IdentifiedPlantsPage';
-import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
+import ProtectedRoute from './ProtectedRoute';
+import MainLayout from '../layouts/MainLayout';
+import AboutPage from '../pages/AboutPage';
 
 const Router = () => {
   return (
