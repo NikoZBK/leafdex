@@ -6,12 +6,12 @@ import ContactPage from '../pages/ContactPage';
 import ProtectedRoute from './ProtectedRoute';
 import MainLayout from '../layouts/MainLayout';
 import AboutPage from '../pages/AboutPage';
-
+import LoginPage from '../pages/LoginPage';
 const Router = () => {
   return (
     <Routes>
       {/* Public routes */}
-      <Route path="/login" element={<App />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
 
       {/* Protected routes */}

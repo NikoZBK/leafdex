@@ -1,5 +1,7 @@
 import React from 'react';
 import { classes } from '../styles/classes';
+import Upload from '../upload';
+import { ImageContext } from '../uploadContext';
 
 const IdentifiedPlantsPage: React.FC = () => {
   return (
@@ -52,24 +54,13 @@ const IdentifiedPlantsPage: React.FC = () => {
           </div>
 
           {/* Plants Grid */}
-          <div className={classes.grid3}>
-            {/* Empty state */}
-            <div className={classes.card}>
-              <div className={classes.cardBody}>
-                <h2 className={classes.heading2}>No Plants Yet</h2>
-                <p className={classes.paragraph}>
-                  Start your plant collection by adding your first plant!
-                </p>
-                <button className={classes.btnPrimary}>
-                  Add Your First Plant
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* Use upload component and context*/}
+          <ImageContext.Provider value={{ images: [], addImage: () => {} }}>
+            <Upload />
+          </ImageContext.Provider>
         </div>
       </div>
     </div>
   );
 };
-
 export default IdentifiedPlantsPage;
