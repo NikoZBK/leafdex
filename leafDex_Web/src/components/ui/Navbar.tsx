@@ -2,8 +2,12 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import leafDex from '../../assets/leaf.svg';
 
+
+
 // Shared classes for navigation elements
 const navClasses = {
+
+  tags : ['autodocs'],
   container: 'navbar bg-base-200 fixed top-0 left-0 w-full z-50',
   list: 'menu menu-horizontal px-1',
   link: 'text-primary hover:bg-base-100 rounded-lg transition-colors',
