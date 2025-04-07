@@ -1,24 +1,18 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
 import App from '../App';
-import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import IdentifiedPlantsPage from '../pages/IdentifiedPlantsPage';
-import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
-
-// Layout components
+import ProtectedRoute from './ProtectedRoute';
 import MainLayout from '../layouts/MainLayout';
-import AuthLayout from '../layouts/AuthLayout';
-
+import AboutPage from '../pages/AboutPage';
+import LoginPage from '../pages/LoginPage';
 const Router = () => {
   return (
     <Routes>
-      {/* Auth routes */}
-      <Route element={<AuthLayout />}>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-      </Route>
+      {/* Public routes */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
 
       {/* Protected routes */}
       <Route
@@ -39,7 +33,7 @@ const Router = () => {
         <Route path="/contact" element={<ContactPage />} />
       </Route>
 
-      {/* Catch all route - redirect to home */}
+      {/* Catch-all: redirect to / */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
