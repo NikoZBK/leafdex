@@ -1,8 +1,12 @@
 import React from 'react';
-import { Plant } from '../../types/plants';
+import { classes } from '../../styles/classes';
 
-interface PlantCardProps extends Omit<Plant, 'id'> {
-  onCollect?: () => void;
+interface PlantCardProps {
+  name: string;
+  scientificName?: string;
+  imageUrl: string;
+  status?: string;
+  onCollect: () => void;
 }
 
 const PlantCard: React.FC<PlantCardProps> = ({
@@ -13,7 +17,7 @@ const PlantCard: React.FC<PlantCardProps> = ({
   onCollect,
 }) => {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className={classes.card}>
       <figure className="px-4 pt-4">
         <img
           src={imageUrl}
@@ -21,8 +25,8 @@ const PlantCard: React.FC<PlantCardProps> = ({
           className="rounded-xl h-48 w-full object-cover"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">{name}</h2>
+      <div className={classes.cardBody}>
+        <h2 className={classes.cardTitle}>{name}</h2>
         {scientificName && (
           <p className="text-sm text-base-content/70">{scientificName}</p>
         )}
@@ -32,7 +36,7 @@ const PlantCard: React.FC<PlantCardProps> = ({
           </div>
         )}
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary" onClick={onCollect}>
+          <button className={classes.btnPrimary} onClick={onCollect}>
             Collect
           </button>
         </div>

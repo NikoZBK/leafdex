@@ -37,11 +37,15 @@ const LoginPage: React.FC = () => {
       // For now, we'll simulate a successful login
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
 
-      // For demo purposes, let's check if email and password are not empty
+      // arbitrary login check
       if (email && password) {
+        // Simulate a successful login
+        localStorage.setItem('isAuthenticated', 'true');
         // If login is successful, navigate to the main app
+        console.log('Login successful');
         navigate('/');
       } else {
+        console.log('Login failed');
         setError('Please enter both email and password');
       }
     } catch (err) {
@@ -54,9 +58,9 @@ const LoginPage: React.FC = () => {
   return (
     <div className={formClasses.container}>
       <div className={formClasses.card}>
-        <h2 className={formClasses.title}>Welcome Back</h2>
+        <h2 className={formClasses.title}>Welcome</h2>
         <p className={formClasses.subtitle}>
-          Sign in to continue your plant journey
+          Sign in to continue your plant discoveryjourney
         </p>
 
         <button className={formClasses.googleButton}>
