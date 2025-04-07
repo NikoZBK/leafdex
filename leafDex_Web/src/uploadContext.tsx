@@ -1,30 +1,34 @@
-// uploadContext.tsx
 import { createContext, useState, ReactNode } from 'react';
 
-// How the context looks
-interface UploadContextType {
-  images: string[];
-  addImage: (img: string) => void;
+interface ContextType {
+  images: Plant[];
+  addImage: (img: Plant) => void;
 }
 
-// Create4 instance of context
-export const ImageContext = createContext<UploadContextType | undefined>(
-  undefined
-);
+export interface Plant {
+  id: number;
+  src: string;
+  plantName: string;
+  description: string;
+  timestamp: string;
+}
 
-//Allows access to context
+// Initialize context
+export const ImageContext = createContext<ContextType | undefined>(undefined);
+
+// Access to context
 export const ContextWrapper = ({ children }: { children: ReactNode }) => {
-  //Holds images, implements interface UploadContextType
-  const [images, addImages] = useState<string[]>([]);
+  // Implement images as per the interface
+  const [images, addImages] = useState<Plant[]>([]);
 
-  //Adds image to context, implements addImage from UploadContextType
-  const addImage = (newImage: string) => {
+  // Implement add image as per Interface
+  const addImage = (newImage: Plant) => {
     addImages((prevImages) => [...prevImages, newImage]);
   };
 
   return (
-    <ImageContext.Provider value={{ images, addImage }}>
-      {children}
-    </ImageContext.Provider>
+      <ImageContext.Provider value={{ images, addImage }}>
+        {children}
+      </ImageContext.Provider>
   );
 };
