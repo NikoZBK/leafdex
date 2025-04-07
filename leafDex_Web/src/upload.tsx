@@ -15,7 +15,6 @@ const formClasses = {
     subtitle: 'text-base-content/70 text-center text-sm mb-6',
 };
 
-// Mock processor for demo purposes (simulates microservice)
 const processImage = (src: string, index: number): Plant => {
     const now = new Date().toLocaleString();
     return {

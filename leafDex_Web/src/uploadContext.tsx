@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 
 interface ContextType {
   images: Plant[];
@@ -19,7 +19,20 @@ export const ImageContext = createContext<ContextType | undefined>(undefined);
 // Access to context
 export const ContextWrapper = ({ children }: { children: ReactNode }) => {
   // Implement images as per the interface
-  const [images, addImages] = useState<Plant[]>([]);
+  const [images, addImages] = useState<Plant[]>(() => {
+    const localImages = localStorage.getItem('uploaded');
+    if (localImages) {
+      return JSON.parse(localImages);
+    } else {
+      return [];
+    }
+  });
+
+  //Save images when updated
+  useEffect(() => {
+    localStorage.setItem('uploaded', JSON.stringify(images));
+  }, [images]);
+
 
   // Implement add image as per Interface
   const addImage = (newImage: Plant) => {
