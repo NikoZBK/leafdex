@@ -3,7 +3,6 @@ import './index.css';
 import video from './assets/videoplayback.webm';
 import { classes } from './styles/classes';
 
-
 function App() {
   return (
     <div className="fixed inset-0 w-screen h-screen overflow-hidden">
