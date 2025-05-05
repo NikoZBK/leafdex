@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext } from 'react';
-import { ImageContext } from './uploadContext';
+import { ImageContext, Plant } from './uploadContext';
 
 // Daisy UI
 const formClasses = {
@@ -15,10 +15,22 @@ const formClasses = {
     subtitle: 'text-base-content/70 text-center text-sm mb-6',
 };
 
+// Mock processor for demo purposes (simulates microservice)
+const processImage = (src: string, index: number): Plant => {
+    const time = new Date().toLocaleString();
+    return {
+        id: index + 1,
+        src: src,
+        plantName: `Plant Species #${index + 1}`,
+        description: `This plant was auto-identified as healthy and vibrant.`,
+        timestamp: time,
+    };
+};
+
 const Upload = () => {
 
     const context = useContext(ImageContext);
-    const { images, addImage } = context!; //
+    const { images, addImage } = context!;
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Get images
@@ -29,7 +41,10 @@ const Upload = () => {
         Array.from(images).forEach((image) => {
             const reader = new FileReader();
             reader.onloadend = () => {
-                if (reader.result) addImage(reader.result as string);
+                if (reader.result) {
+                    const processed: Plant = processImage(reader.result as string, images.length);
+                    addImage(processed);
+                }
             };
             reader.readAsDataURL(image);
         });
@@ -61,21 +76,24 @@ const Upload = () => {
                             Uploaded Images:
                         </p>
                         <div className="flex flex-col gap-4">
-                            {images.map((img, index) => (
+                            {images.map((img) => (
                                 <div
-                                    key={index}
+                                    key={img.id}
                                     className="card bg-base-100 shadow-md flex flex-row"
                                 >
                                     <figure className="w-1/3">
                                         <img
-                                            src={img}
-                                            alt={`Plant ${index + 1}`}
+                                            src={img.src}
+                                            alt={img.plantName}
                                             className="object-cover h-full w-full rounded-l-lg"
                                         />
                                     </figure>
                                     <div className="card-body w-2/3 p-4">
-                                        <h2 className="card-title">Plant {index + 1}</h2>
-                                        <p>Here is a plant 🌿</p>
+                                        <h2 className="card-title">{img.plantName}</h2>
+                                        <p>{img.description}</p>
+                                        <p className="text-xs text-base-content/60 mt-2">
+                                            Uploaded: {img.timestamp}
+                                        </p>
                                     </div>
                                 </div>
                             ))}

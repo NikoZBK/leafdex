@@ -1,0 +1,43 @@
+:root {
+  /* Layout */
+  --container: 'container mx-auto px-4 py-8';
+  --max-width: 'max-w-3xl mx-auto';
+
+  /* Typography */
+  --heading-1: 'text-4xl font-bold text-primary mb-8';
+  --heading-2: 'text-2xl font-semibold text-primary mt-8 mb-4';
+  --heading-3: 'text-lg';
+  --paragraph: 'mb-6';
+
+  /* Cards */
+  --card: 'card bg-base-200';
+  --card-body: 'card-body';
+  --card-title: 'card-title';
+
+  /* Forms */
+  --form-control: 'form-control';
+  --label: 'label';
+  --label-text: 'label-text';
+  --input: 'input input-bordered';
+  --textarea: 'textarea textarea-bordered h-32';
+
+  /* Buttons */
+  --btn-primary: 'btn btn-primary';
+  --btn-outline: 'btn btn-outline';
+  --btn-circle: 'btn btn-circle';
+
+  /* Grid */
+  --grid-2: 'grid grid-cols-1 md:grid-cols-2 gap-8';
+  --grid-3: 'grid grid-cols-1 md:grid-cols-3 gap-6';
+
+  /* Spacing */
+  --space-y-4: 'space-y-4';
+  --space-y-6: 'space-y-6';
+  --gap-4: 'gap-4';
+
+  /* Flex */
+  --flex-center: 'flex items-center gap-3';
+
+  /* Lists */
+  --list-disc: 'list-disc list-inside space-y-2';
+}
