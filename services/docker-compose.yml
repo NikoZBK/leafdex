@@ -1,0 +1,49 @@
+# This is a docker compose file for defining and running
+# multi-container environments. It simplifies the control
+# of your application stack into a single configuration
+# file. The following commands are useful:
+#
+#   docker compose up          - "runs" the entire system
+#   docker compose up --build  - force a build and "runs" system
+#   docker compose up -d       - "runs" system in detached mode
+#   docker compose down        - "closes" the entire system and deletes everything
+#   docker compose stop        - stop running containers without removing them
+#   docker compose start       - start previously stopped containers
+#
+version: '3.9'
+name: ms-arch
+
+services:
+  registry:
+    build:
+      context: ./registry
+    container_name: registry
+    networks:
+      - microservices-network
+
+  img-id:
+    build:
+      context: ./img-id
+    container_name: img-id
+    depends_on:
+      - registry
+    networks:
+      - microservices-network
+    environment:
+      - REGISTRY_URL=http://registry:3000
+      - IMG_API_URL=https://plant.id/api/v3
+      - PLANT_ID_API_KEY=${PLANT_ID_API_KEY}
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: api-gateway
+    depends_on:
+      - img-id
+    networks:
+      - microservices-network
+    ports:
+      - '3000:3000'
+
+networks:
+  microservices-network:
+    driver: bridge
