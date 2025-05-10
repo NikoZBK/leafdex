@@ -1,16 +1,9 @@
-FROM node:23-alpine
-
+FROM node:18-alpine
 WORKDIR /app
-
-# Install curl for in container testing
-RUN apk add --no-cache curl
-
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
-
 RUN npm run build
-
-CMD ["npm", "start"]
+RUN npm install -g serve
+EXPOSE 3000
+CMD ["serve", "-s", "dist", "-l", "3000"]

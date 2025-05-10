@@ -1,23 +1,38 @@
-version: '3.8'
+version: '3.9'
+name: ms-arch
 
 services:
-  leafdex-web:
+  registry:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./registry
+    container_name: registry
+    networks:
+      - skynet
     ports:
-      - '80:80'
-    restart: unless-stopped
+      - "3003:3000"  # Optional for debugging
 
-  leafdex-web-dev:
+  api-gateway:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
+      context: ./api-gateway
+    container_name: api-gateway
+    depends_on:
+      - registry
+    networks:
+      - skynet
     ports:
-      - '5173:5173'
-    volumes:
-      - ./leafDex_Web:/app
-      - /app/node_modules
+      - "3001:3000"
+
+  client:
+    build:
+      context: ./leafDex_Web
+    container_name: leafdex_web
+    networks:
+      - skynet
+    ports:
+      - "3000:80"
     environment:
-      - NODE_ENV=development
-    command: npm run dev -- --host 0.0.0.0
+      - VITE_API_URL=http://api-gateway:3000
+
+networks:
+  skynet:
+    driver: bridge
