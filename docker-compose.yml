@@ -1,18 +1,23 @@
 version: '3.8'
+name: leafdex-stack
 
 services:
   leafdex-web:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: leafdex-web
     ports:
       - '80:80'
     restart: unless-stopped
+    networks:
+      - skynet
 
   leafdex-web-dev:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    container_name: leafdex-web-dev
     ports:
       - '5173:5173'
     volumes:
@@ -20,4 +25,31 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+      - VITE_API_URL=http://api-gateway:3000
     command: npm run dev -- --host 0.0.0.0
+    networks:
+      - skynet
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: api-gateway
+    depends_on:
+      - registry
+    ports:
+      - "3001:3000"
+    networks:
+      - skynet
+
+  registry:
+    build:
+      context: ./registry
+    container_name: registry
+    ports:
+      - "3003:3000"
+    networks:
+      - skynet
+
+networks:
+  skynet:
+    driver: bridge
