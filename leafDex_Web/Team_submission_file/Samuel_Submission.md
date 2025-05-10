@@ -53,27 +53,33 @@
 
 # Architecture Diagram
 
-```mermaid
-%% TODO:
-%% Use mermaid syntax to create an architectural diagram of the system
-%% you worked on. You can easily and interactively build a diagram
-%% by using the online tool available at https://mermaid.live. You can
-%% find additional information at https://mermaid.js.org. 
+flowchart TD
+    A[ReactApp] -->G(API Gateway)
+    G --> A
+    
+    G --> R(Registry)
+    R --> G
+    R --> C
+    C --> R
 
-%% Here is an example diagram:
-graph LR;
-    A["Frontend (React + Canvas)"] -->|"HTTP Requests (REST API)"| B["Backend (Node.js Express)"];
-    B -->|CRUD Operations| C[MongoDB Database];
-    B -->|User Authentication| D["Auth Service (JWT)"];
-    A -->|Real-time Collaboration| E["Collaborative Painting Service (WebSocket + Redis)"];
-    B -->|Containerized in| F[Docker Compose];
-    C -->|Artwork Storage| G["Image Storage (AWS S3)"];
-    A -->|Fetch Paintings| G;
-    D -->|JWT Tokens for Secure Access| A;
-    F -->|Containers for Frontend, Backend, Auth, and Real-Time| A;
-    F -->|Containers for Database and Image Storage| C;
-    F -->|Containers for Collaborative Service| E;
-```
+    G -->C(CRUD Service)
+    C --> H(Handler Service)
+    H --> C
+
+    C --> RE(Redis)
+    RE --> C
+
+    H --> IID(Image ID Service)
+    H --> AI(AI GEN SERVICE)
+
+    AI --> H
+    AI --> R
+
+    IID --> H
+    IID --> R
+    
+    G --> H
+    H --> G
 
 ---
 
