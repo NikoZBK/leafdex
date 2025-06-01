@@ -20,7 +20,9 @@ Know your Greens with LeafDex! LeafDex is an application designed to allow users
    
 
 #### How to use
------PLACEHOLDER-----
+Steps: 
+- npm i
+- npm run dev
 
 
 
