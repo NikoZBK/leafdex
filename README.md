@@ -7,6 +7,8 @@ Nikolay Ostroukhov, Omar Natour, Samuel Hernandez, Chandan Marle
 
 ### Overview of Application
 #### About
+<img width="1470" height="802" alt="Screenshot 2025-09-24 at 1 33 23 PM" src="https://github.com/user-attachments/assets/f030e1e3-f075-4b10-9dda-e654dc971d74" />
+
 Know your Greens with LeafDex! LeafDex is an application designed to allow users to take photos that will be identified by LeafDex. LeafDex will have mobile and web front ends for access from all you devices. LeafDex aims to be a platform that allows you to explore your enviroment and learn more about the plant life around you! 
 
 #### Features
@@ -20,7 +22,9 @@ Know your Greens with LeafDex! LeafDex is an application designed to allow users
    
 
 #### How to use
-Steps: 
+Steps:
+
+- cd leafdex_web
 - npm i
 - npm run dev
 
